@@ -81,6 +81,8 @@ public class Histogram extends Classifier
 		for (int i = 0; i < histograms.length; i++)
 		{
 			String string	= "";
+			if(i == 0) string += "Male:\t";
+			if(i == 1) string += "Female:\t";
 			for (int j = 0; j < histograms[0].length; j++)
 			{
 				string += histograms[i][j] + ",";
@@ -98,7 +100,7 @@ public class Histogram extends Classifier
 			{
 				if(value >= binIntervals[i] && value < binIntervals[i+1])
 				{
-					System.out.println(binIntervals[i]+" >= "+value+" < "+ binIntervals[i+1]+": "+classIndex + " " + histograms[classIndex][i]);
+					System.out.println("Falls into Bin "+i+":\t"+binIntervals[i]+" >= "+value+" < "+ binIntervals[i+1]+": "+(classIndex == 0 ? "Male" : "Female"));
 					histograms[classIndex][i]++;
 				}
 			}
@@ -107,6 +109,8 @@ public class Histogram extends Classifier
 		for (int i = 0; i < histograms.length; i++)
 		{
 			String string	= "";
+			if(i == 0) string += "Male:\t";
+			if(i == 1) string += "Female:\t";
 			for (int j = 0; j < histograms[0].length; j++)
 			{
 				string += histograms[i][j] + ",";
@@ -148,14 +152,18 @@ public class Histogram extends Classifier
 			double binProb	= (double)histograms[i][binIndex] / freqSum[i];
 			binProbs[i]	= binProb;
 			probSum		+= binProb;
-			System.out.println("PROBABILITY "+i+": "+histograms[i][binIndex] +"/"+ freqSum[i]+" = "+binProb);
+			System.out.println(
+					(i == 0 ? "Male" : "Female")+" Probability:\t"
+					+ histograms[i][binIndex] +"/"+ freqSum[i]+" = "+binProb);
 		}
 
 		//	NORMALISING PROBABILITIES USING THE SUM:
 		for (int i = 0; i < binProbs.length; ++i)
 		{
 			binProbs[i] /= probSum;
-			System.out.println("NORMALISED PROBABILITY "+i+": "+binProbs[i]);
+			System.out.println(
+					(i == 0 ? "Male" : "Female") + " Normalised Probability:\t"
+					+ binProbs[i]);
 		}
 
 		//	RETURNING PROBABILITY OF INSTANCE FALLING INTO EACH CLASS:
