@@ -7,8 +7,10 @@ import weka.core.Instances;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Main {
-	public static Instances loadData(String fullPath) {
+public class Main
+{
+	public static Instances loadData(String fullPath)
+	{
 		Instances d = null;
 		FileReader r;
 		try {
@@ -28,13 +30,10 @@ public class Main {
 
 		instances.setClassIndex(instances.instance(0).numAttributes() - 1);
 		Histogram histogram = new Histogram();
-		try
-		{
+		try {
 			histogram.buildClassifier(instances);
-			histogram.distributionForInstance(instances.instance(3));
-		}
-		catch(Exception e)
-		{
+			histogram.distributionForInstance(instances.instance(8));
+		} catch (Exception e) {
 
 		}
 

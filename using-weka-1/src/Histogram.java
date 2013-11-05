@@ -11,25 +11,30 @@ import weka.core.Instances;
  */
 public class Histogram extends Classifier
 {
-	public int getNumOfBins() {
+	public int getNumOfBins()
+	{
 		return numOfBins;
 	}
 
-	public void setNumOfBins(int numOfBins) {
+	public void setNumOfBins(int numOfBins)
+	{
 		this.numOfBins = numOfBins;
 	}
 
-	public int getAttPos() {
+	public int getAttPos()
+	{
 		return attPos;
 	}
 
-	public void setAttPos(int attPos) {
+	public void setAttPos(int attPos)
+	{
 		this.attPos = attPos;
 	}
 
 	protected int attPos;
 	protected int numOfBins;
 	protected double[] binIntervals;
+	protected int[][] histograms;
 	protected double max;
 	protected double min;
 
@@ -44,6 +49,7 @@ public class Histogram extends Classifier
 	@Override
 	public void buildClassifier(Instances instances) throws Exception
 	{
+		//	WORKING OUT THE GLOBAL MAXIMUM AND MINIMUM:
 		for (int i = 0; i < instances.numInstances(); ++i)
 		{
 			System.out.println("Value "+i+":\t"+instances.instance(i).value(attPos));
@@ -51,31 +57,106 @@ public class Histogram extends Classifier
 			min = Math.min(min, instances.instance(i).value(attPos));
 		}
 
+		//	THE DIFFERENCE BETWEEN THE GLOBAL MAXIMUM AND MINIMUM:
 		double diff		= max - min;
 		System.out.println("Maximum:\t" + max);
 		System.out.println("Minimum:\t" + min);
 		System.out.println("Difference:\t" + diff);
+		System.out.println("Bins:\t"+numOfBins);
 
-		double interval	= diff / numOfBins;
+		//	WORKING OUT THE RANGE OF EACH BIN, INITIALISING ARRAY TO STORE THE BIN INTERVALS:
+		double range	= diff / numOfBins;
 		binIntervals	= new double[numOfBins + 1];
 
-		for (int j = 0; j < binIntervals.length; ++j)
+		//	GENERATING BIN INTERVALS USING THE RANGE AND GLOBAL MINIMUM:
+		for (int i = 0; i < binIntervals.length; ++i)
 		{
-			binIntervals[j]	= min + interval * j;
-			System.out.println("Bin "+j+":\t"+(min + interval * j));
+			binIntervals[i]	= min + range * i;
+			System.out.println("Bin "+i+":\t"+(min + range * i));
+		}
+
+		//	INITIALISING HISTOGRAMS (ONE FOR EACH CLASS):
+		System.out.println("Initialising Histograms:\t"+instances.numClasses()+" by "+numOfBins);
+		histograms	= new int[instances.numClasses()][numOfBins];
+		for (int i = 0; i < histograms.length; i++)
+		{
+			String string	= "";
+			for (int j = 0; j < histograms[0].length; j++)
+			{
+				string += histograms[i][j] + ",";
+			}
+			System.out.println(string);
+		}
+
+		//	COUNTING ALL INSTANCES USING THEIR RELATIVE CLASS HISTOGRAM:
+		for (int k = 0; k < instances.numInstances(); ++k)
+		{
+			double value	= instances.instance(k).value(attPos);
+			int classIndex	= (int) instances.instance(k).classValue();
+			int binIndex	= 0;
+			for (int i = 0; i < (binIntervals.length - 1); ++i)
+			{
+				if(value >= binIntervals[i] && value < binIntervals[i+1])
+				{
+					System.out.println(binIntervals[i]+" >= "+value+" < "+ binIntervals[i+1]+": "+classIndex + " " + histograms[classIndex][i]);
+					histograms[classIndex][i]++;
+				}
+			}
+		}
+
+		for (int i = 0; i < histograms.length; i++)
+		{
+			String string	= "";
+			for (int j = 0; j < histograms[0].length; j++)
+			{
+				string += histograms[i][j] + ",";
+			}
+			System.out.println(string);
 		}
 	}
 
 	@Override
 	public double[] distributionForInstance(Instance instance) throws Exception
 	{
+		//	WHICH BIN DOES THE INSTANCE FALL INTO:
+		int binIndex = 0;
 		for (int i = 0; i < (binIntervals.length - 1); ++i)
 		{
 			if(instance.value(attPos) >= binIntervals[i] && instance.value(attPos) < binIntervals[i+1])
 			{
-				System.out.println(binIntervals[i]+" "+instance.value(attPos)+" "+ binIntervals[i+1]);
+				System.out.println("Instance: "+instance.value(attPos)+" is in Bin: "+i+" ("+binIntervals[i]+">=x<"+binIntervals[i+1]+")");
+			    binIndex = i;
+				break;
 			}
 		}
-		return null;
+
+		//	WORKING OUT FREQUENCY SUM OF HISTOGRAMS:
+		int freqSum[] = new int[histograms.length];
+		for (int i = 0; i < histograms.length; ++i)
+		{
+			for (int j = 0; j < histograms[0].length; ++j)
+			{
+				freqSum[i]	+= histograms[i][j];
+			}
+		}
+
+		double binProbs[]	= new double[histograms.length];
+		double probSum = 0;
+		for (int i = 0; i < histograms.length; ++i)
+		{
+			double binProb	= (double)histograms[i][binIndex] / freqSum[i];
+			binProbs[i]	= binProb;
+			probSum		+= binProb;
+			System.out.println("PROBABILITY "+i+": "+binProb);
+		}
+
+		//	NORMALISING PROBABILITIES USING THE SUM OF ALL PROBABILITIES:
+		for (int i = 0; i < binProbs.length; ++i)
+		{
+			binProbs[i] /= probSum;
+			System.out.println("NORMALISED PROBABILITY "+i+": "+binProbs[i]);
+		}
+
+		return binProbs;
 	}
 }
