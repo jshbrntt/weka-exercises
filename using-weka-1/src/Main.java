@@ -34,6 +34,8 @@ public class Main
 
 	private static void startQuestionFour()
 	{
+		System.out.println("\nStarting Question Four:\n");
+
 		//	IMPORTING TEXT FILE:
 		Instances instances	= loadData("ArsenalTrain.arff");
 
@@ -66,6 +68,8 @@ public class Main
 
 	private static void startQuestionFive()
 	{
+		System.out.println("\nStarting Question Five:\n");
+
 		//	IMPORTING TEXT FILE:
 		Instances instances	= loadData("HeightSex.arff");
 
