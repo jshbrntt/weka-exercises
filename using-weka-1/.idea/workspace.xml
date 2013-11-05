@@ -77,10 +77,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="59" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
+            <state line="47" column="40" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.2717873">
               <folding />
             </state>
           </provider>
@@ -98,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Histogram.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Histogram.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Histogram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="42" selection-start="528" selection-end="528" vertical-scroll-proportion="0.44756278">
+            <state line="143" column="36" selection-start="3847" selection-end="3847" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +138,8 @@
         <option value="$PROJECT_DIR$/using-weka-1.iml" />
         <option value="$PROJECT_DIR$/HeightSex.arff" />
         <option value="$PROJECT_DIR$/ArsenalTrain.arff" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Histogram.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -612,19 +612,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="59" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Histogram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="42" selection-start="528" selection-end="528" vertical-scroll-proportion="0.44756278">
+        <state line="143" column="36" selection-start="3847" selection-end="3847" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="40" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.2717873">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -54,7 +54,7 @@ public class Main
 			for (int i = 0; i < instances.numInstances(); ++i)
 			{
 				double prob1	= nativeBayes.classifyInstance(instances.instance(i));
-				double prob2	= nativeBayes.classifyInstance(instances.instance(i));
+				double prob2	= ib1.classifyInstance(instances.instance(i));
 				System.out.println("Bayes:\t"+prob1+"\tIB1:\t"+prob2);
 			}
 		}
