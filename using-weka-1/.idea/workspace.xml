@@ -12,10 +12,10 @@
     <file path="/a.groovy" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383056376743" ignored="false" />
     <file path="/a.html" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383056399087" ignored="false" />
     <file path="/a.xml" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383058345707" ignored="false" />
-    <file path="/Main.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383650576848" ignored="false" />
+    <file path="/Main.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383665512819" ignored="false" />
     <file path="/fragment.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383651141772" ignored="false" />
     <file path="/sample.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383058505456" ignored="false" />
-    <file path="/Histogram.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383663741647" ignored="false" />
+    <file path="/Histogram.java" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383665615061" ignored="false" />
     <file path="/GenderTrain.arff" changelist="8f0315ad-9913-45e1-9f8c-69f96c1a1c89" time="1383061311236" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,19 +77,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="39" selection-start="900" selection-end="900" vertical-scroll-proportion="0.67799115">
+            <state line="79" column="59" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Histogram.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ArsenalTrain.arff" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArsenalTrain.arff">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="71" selection-start="145" selection-end="145" vertical-scroll-proportion="-5.44">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Histogram.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Histogram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="48" selection-start="3651" selection-end="3651" vertical-scroll-proportion="0.0">
+            <state line="30" column="42" selection-start="528" selection-end="528" vertical-scroll-proportion="0.44756278">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +138,8 @@
         <option value="$PROJECT_DIR$/using-weka-1.iml" />
         <option value="$PROJECT_DIR$/HeightSex.arff" />
         <option value="$PROJECT_DIR$/ArsenalTrain.arff" />
-        <option value="$PROJECT_DIR$/src/Histogram.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Histogram.java" />
       </list>
     </option>
   </component>
@@ -419,7 +431,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10939511" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42213643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42213643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -575,26 +587,9 @@
         <state line="16" column="44" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArsenalTrain.arff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="71" selection-start="145" selection-end="145" vertical-scroll-proportion="0.20451128" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/using-weka-1.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="62" selection-start="460" selection-end="487" vertical-scroll-proportion="0.22173913" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Histogram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="48" selection-start="3651" selection-end="3651" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HeightSex.arff">
@@ -607,10 +602,29 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ArsenalTrain.arff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="71" selection-start="145" selection-end="145" vertical-scroll-proportion="-5.44">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="39" selection-start="900" selection-end="900" vertical-scroll-proportion="0.67799115">
+        <state line="79" column="59" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Histogram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="42" selection-start="528" selection-end="528" vertical-scroll-proportion="0.44756278">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

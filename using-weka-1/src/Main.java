@@ -17,47 +17,75 @@ public class Main
 			r = new FileReader(fullPath);
 			d = new Instances(r);
 			d.setClassIndex(d.numAttributes() - 1);
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			System.out.println("Unable to load data on path " + fullPath + " Exception thrown =" + e);
 			System.exit(0);
 		}
 		return d;
 	}
 
+	public static void main(String[] args)
+	{
+		startQuestionFour();
+		startQuestionFive();
+	}
 
-	public static void main(String[] args) {
-		Instances instances = loadData("HeightSex.arff");
+	private static void startQuestionFour()
+	{
+		//	IMPORTING TEXT FILE:
+		Instances instances	= loadData("ArsenalTrain.arff");
 
+		//	SETTING CLASS INDEX TO THE LAST ATTRIBUTE (Loss,Win,Draw):
 		instances.setClassIndex(instances.instance(0).numAttributes() - 1);
-		Histogram histogram = new Histogram();
-		try {
-			histogram.buildClassifier(instances);
-			histogram.distributionForInstance(instances.instance(8));
-		} catch (Exception e) {
 
-		}
+		//	CONSTRUCTING CLASSIFIER OBJECTS:
+		NaiveBayes nativeBayes	= new NaiveBayes();
+		IB1 ib1					= new IB1();
 
-		/*
-		train.setClassIndex(train.instance(0).numAttributes() - 1);
-
-		// Naive Bayes Classifier
-		NaiveBayes classifier1	= new NaiveBayes();
-		IB1 classifier2			= new IB1();
 		try
 		{
-			classifier1.buildClassifier(train);
-			classifier2.buildClassifier(train);
+			//	BUILDING CLASSIFIERS ON TRAINING DATA:
+			nativeBayes.buildClassifier(instances);
+			ib1.buildClassifier(instances);
 
-			for (int i = 0; i < train.numInstances(); ++i)
+			//	GETTING PREDICTION OF RESULT FROM BOTH CLASSIFIERS (Loss,Win,Draw):
+			for (int i = 0; i < instances.numInstances(); ++i)
 			{
-				System.out.println("Prediction " + i +	":\t" + classifier1.classifyInstance(train.instance(i))
-														+ "\t" + classifier2.classifyInstance(train.instance(i)));
+				double prob1	= nativeBayes.classifyInstance(instances.instance(i));
+				double prob2	= nativeBayes.classifyInstance(instances.instance(i));
+				System.out.println("Bayes:\t"+prob1+"\tIB1:\t"+prob2);
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
 		}
-		*/
+	}
+
+	private static void startQuestionFive()
+	{
+		//	IMPORTING TEXT FILE:
+		Instances instances	= loadData("HeightSex.arff");
+
+		//	SETTING CLASS INDEX TO THE LAST ATTRIBUTE ([M]ale, [F]emale):
+		instances.setClassIndex(instances.instance(0).numAttributes() - 1);
+		Histogram histogram = new Histogram();
+
+		try
+		{
+			//	BUILDING CLASSIFIERS ON TRAINING DATA:
+			histogram.buildClassifier(instances);
+
+			//	GETTING THE PROBABILITY OF IT FALLING INTO EITHER CLASS ([M]ale, [F]emale):
+			double[] probs = histogram.distributionForInstance(instances.instance(8));
+			System.out.println("Probability Instance is Male:\t"+probs[0]);
+			System.out.println("Probability Instance is Female:\t"+probs[1]);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 }

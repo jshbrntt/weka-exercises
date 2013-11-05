@@ -140,6 +140,7 @@ public class Histogram extends Classifier
 			}
 		}
 
+		//	CALCULATING INDEPENDENT PROBABILITIES, AND THERE SUM:
 		double binProbs[]	= new double[histograms.length];
 		double probSum = 0;
 		for (int i = 0; i < histograms.length; ++i)
@@ -147,16 +148,17 @@ public class Histogram extends Classifier
 			double binProb	= (double)histograms[i][binIndex] / freqSum[i];
 			binProbs[i]	= binProb;
 			probSum		+= binProb;
-			System.out.println("PROBABILITY "+i+": "+binProb);
+			System.out.println("PROBABILITY "+i+": "+histograms[i][binIndex] +"/"+ freqSum[i]+" = "+binProb);
 		}
 
-		//	NORMALISING PROBABILITIES USING THE SUM OF ALL PROBABILITIES:
+		//	NORMALISING PROBABILITIES USING THE SUM:
 		for (int i = 0; i < binProbs.length; ++i)
 		{
 			binProbs[i] /= probSum;
 			System.out.println("NORMALISED PROBABILITY "+i+": "+binProbs[i]);
 		}
 
+		//	RETURNING PROBABILITY OF INSTANCE FALLING INTO EACH CLASS:
 		return binProbs;
 	}
 }
